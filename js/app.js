@@ -109,17 +109,19 @@ getBike('NukeProof', 11)
 let minWeight = bikes[0].weight
 let minWeightIndex = 0
 
-for(let i = 0; i < bikes.length; i++){
+// for(let i = 0; i < bikes.length; i++){}
+bikes.forEach((item, i) => {
    
-    if (bikes[i].weight < minWeight){
-        minWeight = bikes[i].weight
+    if (item.weight < minWeight){
+        minWeight = item.weight
         minWeightIndex = i
     }
-}
+})
+
 
 console.log(minWeight)
-console.log(minWeightIndex)
-console.log(bikes[minWeightIndex].brand)
+// console.log(minWeightIndex)
+console.log('Lightest bike: ' + bikes[minWeightIndex].brand)
 
 //Snack 4//
 
@@ -137,6 +139,7 @@ function getTeam(team, points, fall){
     }
 }
 
+
 const teams = [
     getTeam('Roma', number(0, 100), number(0, 50)),
     getTeam('Milan', number(0, 100), number(0, 50)),
@@ -144,27 +147,23 @@ const teams = [
     getTeam('Inter', number(0, 100), number(0, 50)),
     getTeam('Padova', number(0, 100), number(0, 50)),
     getTeam('Bologna', number(0, 100), number(0, 50))
-    
 ]
 
 const fallsArray = []
+const body = document.getElementById('body')
 
-for(let j = 0; j < teams.length; j++){
-    
-    const {
-        team,
-        points,
-        fall
-    } = teams[j]
+teams.forEach((item) => {
+// for(let j = 0; j < teams.length; j++){}
+        const {team, points,fall} = item
+        const teamFall = {team,fall}
+        const newDIV = document.createElement('div')
+        newDIV.innerHTML = team +' - falls: '+ fall
+        document.body.appendChild(newDIV)
+        fallsArray.push(teamFall)
+})
 
-    const falls = {
-        team,
-        fall
-    }
-    
-    fallsArray.push(falls)
-
-}
 console.log(fallsArray)
+
+
 
 
