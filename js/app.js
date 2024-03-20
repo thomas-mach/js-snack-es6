@@ -119,4 +119,52 @@ for(let i = 0; i < bikes.length; i++){
 
 console.log(minWeight)
 console.log(minWeightIndex)
-console.log(bikes[minWeightIndex])
+console.log(bikes[minWeightIndex].brand)
+
+//Snack 4//
+
+function number(min, max){
+    const num = parseInt(Math.floor(Math.random() * (max - min) + min))
+    return num
+}
+
+
+function getTeam(team, points, fall){
+    return{
+        team: team,
+        points: points,
+        fall: fall
+    }
+}
+
+const teams = [
+    getTeam('Roma', number(0, 100), number(0, 50)),
+    getTeam('Milan', number(0, 100), number(0, 50)),
+    getTeam('Lazio', number(0, 100), number(0, 50)),
+    getTeam('Inter', number(0, 100), number(0, 50)),
+    getTeam('Padova', number(0, 100), number(0, 50)),
+    getTeam('Bologna', number(0, 100), number(0, 50))
+    
+]
+
+const fallsArray = []
+
+for(let j = 0; j < teams.length; j++){
+    
+    const {
+        team,
+        points,
+        fall
+    } = teams[j]
+
+    const falls = {
+        team,
+        fall
+    }
+    
+    fallsArray.push(falls)
+
+}
+console.log(fallsArray)
+
+
