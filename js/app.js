@@ -23,9 +23,9 @@ for (let i = 0; i < vips.length; i++){
         posto: i + 1 
     }
 vipsOrder.push(vip)
-console.log(vip)
+// console.log(vip)
 }
-console.log(vipsOrder)
+// console.log(vipsOrder)
 
 
 // Snack 2 //
@@ -77,5 +77,46 @@ for (let i = 0; i < students.length; i++){
     idStudents.push(students[i])
 }
 
-console.log(topStudents)
-console.log(idStudents)
+// const topStudents = students.map((el) => {
+//     return {
+//     name: el.name.toUpperCase()
+//     }
+// }) 
+
+// console.log(topStudents)
+// console.log(idStudents)
+
+
+// Snack 3 //
+
+function getBike(brand, weight){
+    return{
+        brand: brand, 
+        weight: weight
+    }
+}
+
+const bikes = [
+getBike('Trek', 16),
+getBike('GT', 18),
+getBike('YT', 17),
+getBike('Comencial', 19),
+getBike('Spezialized', 9),
+getBike('Cinelli', 13),
+getBike('NukeProof', 11)
+]
+
+let minWeight = bikes[0].weight
+let minWeightIndex = 0
+
+for(let i = 0; i < bikes.length; i++){
+   
+    if (bikes[i].weight < minWeight){
+        minWeight = bikes[i].weight
+        minWeightIndex = i
+    }
+}
+
+console.log(minWeight)
+console.log(minWeightIndex)
+console.log(bikes[minWeightIndex])
